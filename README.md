@@ -25,6 +25,28 @@ API base URL: `http://127.0.0.1:5000`. Use `X-API-Key: demo-write-key` for write
 - `GET /v1/audit` — tenant-scoped audit events.
 - `GET /health` — health check.
 
+## Testing
+
+The project uses pytest for automated testing of API endpoints, database operations, tenant isolation, transaction processing, authentication, validation and error handling.
+
+### Run automated tests
+
+Ensure PostgreSQL is running and the test database is configured before executing the tests.
+
+```bash
+python -m pytest -v
+```
+
+### Generate HTML test report
+
+To generate a detailed HTML report containing passed, failed and skipped tests, run:
+
+```bash
+python -m pytest -v --html=reports/test-report.html --self-contained-html
+```
+
+The HTML report is generated automatically after test execution and does not need to be created manually.
+
 ## Design and security
 
 - API keys are stored as SHA-256 digests and each key belongs to one tenant.
